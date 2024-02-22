@@ -1,5 +1,5 @@
 name: m4StaffUtils
-version: '${project.version}'
+version: '1.22'
 main: com.manstein.m4StaffUtils.StaffUtils
 commands:
   sutil:

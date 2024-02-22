@@ -24,7 +24,6 @@ public class StaffUtils extends JavaPlugin {
         configManager = new ConfigManager(this);
         luckPerms = LuckPermsProvider.get();
 
-        // Registrar o listener de interface
         Bukkit.getPluginManager().registerEvents(new InterfaceListener(), this);
 
         getLogger().info("m4StaffUtils foi ativado com sucesso!");
@@ -35,41 +34,31 @@ public class StaffUtils extends JavaPlugin {
         getLogger().info("m4StaffUtils foi desativado com sucesso!");
     }
 
-    // Método estático para obter a instância da classe
     public static StaffUtils getInstance() {
         return instance;
     }
 
-    // Método para definir o executor de comando
     public void setCommandExecutor(Player player) {
         this.commandExecutor = player;
 
-        // Após definir o executor de comando, criar a interface
         createInterface();
     }
 
-    // Método para obter o executor de comando
     public Player getCommandExecutor() {
         return commandExecutor;
     }
 
-    // Método para acessar o ConfigManager
     public ConfigManager getConfigManager() {
         return configManager;
     }
 
-    // Método para acessar o LuckPerms
     public LuckPerms getLuckPerms() {
         return luckPerms;
     }
 
-    // Método para criar a interface após definir o executor de comando
     private void createInterface() {
         if (commandExecutor != null) {
-            // Criar a interface e passar o executor de comando
             Bukkit.getPluginManager().registerEvents(new SUInterface(configManager, luckPerms, commandExecutor), this);
-
-            // Registrar o comando /sutil com o executor de comando
             getCommand("sutil").setExecutor(new SutilCommand(configManager, luckPerms, commandExecutor));
         }
     }
