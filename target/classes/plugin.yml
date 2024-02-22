@@ -1,0 +1,9 @@
+name: m4StaffUtils
+version: '1.0'
+main: com.manstein.m4StaffUtils.StaffUtils
+commands:
+  sutil:
+    usage: /sutil
+    aliases:
+    - '/staffutils'
+    - '/staffu'
